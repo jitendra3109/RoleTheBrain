@@ -1,0 +1,29 @@
+/* Given an array of objects A, and an array of indexes B, reorder the objects in array A
+    with the given indexes in array B.
+   let a = [C, D, E, F, G, H];
+   let b = [3, 0, 4, 1, 2, 5];
+
+$ reorder(a, b) // a is now [D, F, G, C, E, H]
+ */
+import java.util.*;
+ public class Oct{
+    public static void main(String[] args) {
+      char [] a  = {'C', 'D', 'E', 'F', 'G','H'};
+      int [] b  = {3, 0, 4, 1, 2, 5};
+      for(int i = 0 ; i < a.length ; i++) {
+         for(int j = i+1 ; j < a.length-1 ; j++) {
+            if(b[i] > b[j]) {
+               int temp1 = b[i];
+               b[i] = b[j];
+               b[j] = temp1;
+
+               char temp2 = a[i];
+               a[i] = a[j];
+               a[j] = temp2;
+            }
+         }
+      }
+      System.out.println(Arrays.toString(a));
+      System.out.println(Arrays.toString(b));
+    }
+ }
